@@ -4,68 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>김정훈</title>
-    <style>
-        body {
-            font-weight: bold;
-        }
-
-        header > div {
-            
-        }
-
-        nav > div > a {
-            background-color: white;
-
-        }
-
-        footer > div {
-            width: 100%;
-        }
-
-        footer > a {
-            display: inline-block;
-            border: 3px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header>
-      <!-- 0. 네비게이션 -->
-      <nav>
-        <div>
-          <a href="#profile">프로필</a>
-          <a href="#tech_stacks">기술 스택</a>
-          <a href="#projects">프로젝트</a>
-          <a href="#extras">기타</a>
-        </div>
-      </nav>
-      <!-- 1. 헤드라인(한 줄 소개) -->
+    <!-- 0. 네비게이션 -->
+    <nav>
       <div>
-        헤드라인
-        (배경이미지 + 한 줄 비전 소개)
-        (애니메이션 적용 o)
+        <a href="#profile">프로필</a>
+        <a href="#tech_stacks">기술 스택</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#extras">기타</a>
+      </div>
+    </nav>
+    <header>
+      <!-- 1. 헤드라인(한 줄 소개, 애니메이션) -->
+      <div>
+        <img id="cover_img" src="portfolio_background_image.png" />
+        <div id="headline_background">
+        </div>
+        <div id="headline_text_container">
+          <p id="headline_title">
+            <span>Finding </span>
+            <span>the </span>
+            <span>Best </span>
+            <span>Balance</span>
+          </p>
+          <p id="headline_description">개발자입니다.</p>
+        </div>
       </div>
     </header>
     <main>
-      <!-- 1. 사진, 프로필 -->
-      <div id="profile" class="w-full font-bold">사진, 프로필 섹션</div>
-      <!-- 2. -->
-      <div class="w-full bg-gray-900 text-gray-50">
-        <div>기술 스택</div>
-      </div>
-      <!-- 3. -->
-      <div class="w-full">프로젝트</div>
-      <!-- 4. -->
-      <div class="w-full bg-gray-900 text-gray-50">Media</div>
+      <!-- 2. 사진, 프로필 -->
+      <div id="profile">사진, 프로필 섹션</div>
+      <!-- 3. 기술 스택 -->
+      <div id="tech_stacks">기술 스택</div>
+      <!-- 4. 프로젝트(진행 중 / 완료) -->
+      <div id="projects">프로젝트</div>
+      <!-- 5. 기타(깃허브 잔디, 현재 관심사) -->
+      <div id="extras">기타</div>
     </main>
-    <!-- 5. 꼬리말(저작권/다른 페이지) -->
+    <!-- 6. 꼬리말(저작권/다른 페이지) -->
     <footer>
-      <div class="w-full bg-gray-200">
+      <div>
         <p>© 2026 Kim Jeong Hun. All Rights Reserved.</p>
         <a href="https://github.com/Kim-Jeong-Hun">깃허브 방문하기</a>
         <a href="https://velog.io/@rlawjdgns213/posts">블로그 방문하기</a>
       </div>
     </footer>
-    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
