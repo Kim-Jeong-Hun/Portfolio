@@ -47,54 +47,60 @@ header > div {
 }
 
 #headline_text_container {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  z-index: 2;
 }
 
-/* 헤드라인 글씨 */
+/* 헤드라인 제목 */
 #headline_title {
-  position: absolute;
-  z-index: 2;
   font-size: 5em;
   color: white;
+  margin: 0;
 }
 
+#headline_colored_part {
+  color: blueviolet;
+}
+
+/* 헤드라인 설명 */
 #headline_description {
-    position: absolute;
-    z-index: 2;
-    color: white;
-    font-size: 2em;
+  font-size: 2em;
+  color: white;
+  margin: 0;
 }
 
 /* --------------------------------- */
 /* 사진, 프로필 */
 #profile {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 /* --------------------------------- */
 /* 기술 스택 */
 #tech_stacks {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
-
 
 /* --------------------------------- */
 /* 프로젝트(진행 중 / 완료) */
 #projects {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 /* --------------------------------- */
 /* 기타(깃허브 잔디, 현재 관심사) */
 #extras {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 /* --------------------------------- */
