@@ -64,10 +64,6 @@ header > div {
   margin: 0;
 }
 
-#headline_colored_part {
-  color: blueviolet;
-}
-
 /* 헤드라인 설명 */
 #headline_description {
   font-size: 2em;
