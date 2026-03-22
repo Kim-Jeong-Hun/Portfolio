@@ -10,13 +10,72 @@ body {
 }
 
 /* --------------------------------- */
-/* 네비게이션 */
+/* 네비게이션 적용 애니메이션 */
+/* 요소 보이지 않다가 65%로 보이게 변경 */
+@keyframes navbar_change_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 0.75;
+  }
+}
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* 네비게이션 컨테이너 */
+#navbar {
+  /* 애니메이션*/
+  visibility: hidden;
+  animation-name: navbar_change_animation;
+  animation-duration: 0.3s;
+  animation-delay: 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  /* 레이아웃, 포지션 */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  position: fixed;
+  z-index: 100;
+  margin-top: 10em;
+
+  /* 크기, 형태 */
+  width: 50%;
+  height: 7%;
+  border-style: none;
+  /* tailwindcss의 rounded-full과 같음 */
+  border-radius: 15px;
+  background-color: white;
+}
+
+/* 네비게이션 각 메뉴 */
 nav > div > a {
   color: black;
-  background-color: white;
   display: inline-block;
-  font-size: 2em;
-  border: 2px solid black;
+  font-size: 1.7em;
+  text-decoration: none;
+}
+
+nav > div > a:hover {
+  cursor: pointer;
+  color: oklch(60.6% 0.25 292.717);
+}
+
+/* 활성 네비게이션 링크 */
+nav > div > a.active {
+  text-decoration-line: underline;
+  text-underline-offset: 0.3em;
+  color: oklch(60.6% 0.25 292.717);
 }
 
 /* --------------------------------- */
@@ -58,17 +117,67 @@ header > div {
 }
 
 /* 헤드라인 제목 */
-#headline_title {
+/* 헤드라인 일부 텍스트 색 변경 위해 id 대신 class 사용 */
+.headline_title {
   font-size: 5em;
   color: white;
   margin: 0;
 }
 
+/* 헤드라인 적용 애니메이션 */
+/* 요소 보이지 않다가 보이게 변경 */
+@keyframes headline_change_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#finding {
+  visibility: hidden;
+  animation-name: headline_change_animation;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+#the {
+  visibility: hidden;
+  animation-name: headline_change_animation;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+#best_balance_title {
+  color: oklch(60.6% 0.25 292.717);
+  visibility: hidden;
+  animation-name: headline_change_animation;
+  animation-duration: 0.3s;
+  animation-delay: 0.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 /* 헤드라인 설명 */
-#headline_description {
+.headline_description {
   font-size: 2em;
   color: white;
   margin: 0;
+  visibility: hidden;
+  animation-name: headline_change_animation;
+  animation-duration: 0.3s;
+  animation-delay: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+#best_balance_desc {
+  color: oklch(60.6% 0.25 292.717);
 }
 
 /* --------------------------------- */
@@ -76,6 +185,12 @@ header > div {
 #profile {
   width: 100%;
   height: 100vh;
+}
+
+#profile img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
 }
 
 /* --------------------------------- */

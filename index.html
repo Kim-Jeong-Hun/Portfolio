@@ -8,8 +8,9 @@
   </head>
   <body>
     <!-- 0. 네비게이션 -->
-    <nav>
-      <div>
+    <nav id="home">
+      <div id="navbar">
+        <a href="#home">홈</a>
         <a href="#profile">프로필</a>
         <a href="#tech_stacks">기술 스택</a>
         <a href="#projects">프로젝트</a>
@@ -20,36 +21,61 @@
       <!-- 1. 헤드라인(한 줄 소개, 애니메이션) -->
       <div>
         <img id="cover_img" src="portfolio_background_image.png" />
-        <div id="headline_background">
-        </div>
+        <div id="headline_background"></div>
         <div id="headline_text_container">
-          <p id="headline_title">
-            <span>Finding </span>
-            <span>the </span>
-            <span>Best </span>
-            <span>Balance</span>
+          <p class="headline_title">
+            <span id="finding">Finding </span>
+            <span id="the">the </span>
+            <span id="best_balance_title">Best Balance</span>
           </p>
-          <p id="headline_description">UX와 기술 사이에서 최선의 균형을 찾는 개발자입니다.</p>
+          <p class="headline_description">
+            <span>UX와 기술 사이에서</span>
+            <span id="best_balance_desc">최선의 균형</span
+            ><span>을 찾는 개발자</span>
+            <!-- 왜인지는 모르겠으나 "최선의 균형"과 "을" 사이에 공백이 안 생기게 하려면 
+            닫는 span 태그의 마지막 글자가 이어져있어야 함. -->
+          </p>
         </div>
       </div>
     </header>
     <main>
       <!-- 2. 사진, 프로필 -->
-      <div id="profile">사진, 프로필 섹션</div>
+      <!-- 사진, 이름, 이메일-->
+      <!-- 학력, 자격증, 취미-->
+      <div id="profile">
+        <div id="img_name_email_container">
+          <img src="/34_picture.jpg" alt="사진" />
+          <p>김정훈</p>
+          <p>kimjeonghun213@gmail.com</p>
+        </div>
+        <div id="profile_container">
+          <div id="education_container">
+            <p>학력</p>
+          </div>
+          <div id="certificates_container">
+            <p>자격증</p>
+          </div>
+          <div id="hobbies_container">
+            <p>취미</p>
+          </div>
+        </div>
+      </div>
       <!-- 3. 기술 스택 -->
       <div id="tech_stacks">기술 스택</div>
       <!-- 4. 프로젝트(진행 중 / 완료) -->
       <div id="projects">프로젝트</div>
       <!-- 5. 기타(깃허브 잔디, 현재 관심사) -->
-      <div id="extras">기타</div>
+      <div id="extras">
+        <a href="https://github.com/Kim-Jeong-Hun">깃허브 방문하기</a>
+        <a href="https://velog.io/@rlawjdgns213/posts">블로그 방문하기</a>
+      </div>
     </main>
     <!-- 6. 꼬리말(저작권/다른 페이지) -->
     <footer>
       <div>
         <p>© 2026 Kim Jeong Hun. All Rights Reserved.</p>
-        <a href="https://github.com/Kim-Jeong-Hun">깃허브 방문하기</a>
-        <a href="https://velog.io/@rlawjdgns213/posts">블로그 방문하기</a>
       </div>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>
