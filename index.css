@@ -1,15 +1,21 @@
 /* 공통 스타일 */
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-weight: bold;
+  font-weight: 800;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* --------------------------------- */
+/* 헤드라인 섹션 */
+
 /* 네비게이션 적용 애니메이션 */
 /* 요소 보이지 않다가 65%로 보이게 변경 */
 @keyframes navbar_change_animation {
@@ -18,7 +24,7 @@ body {
   }
   to {
     visibility: visible;
-    opacity: 0.75;
+    opacity: 0.9;
   }
 }
 #home {
@@ -28,14 +34,13 @@ body {
   align-items: center;
 }
 
-
 /* 네비게이션 컨테이너 */
 #navbar {
   /* 애니메이션*/
   visibility: hidden;
   animation-name: navbar_change_animation;
   animation-duration: 0.3s;
-  animation-delay: 1.2s;
+  animation-delay: 0.9s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
@@ -47,12 +52,12 @@ body {
 
   position: fixed;
   z-index: 100;
-  margin-top: 10em;
+  margin-top: 7em;
 
   /* 크기, 형태 */
   width: 50%;
   height: 7%;
-  border-style: none;
+  border: 1px solid gray;
   /* tailwindcss의 rounded-full과 같음 */
   border-radius: 15px;
   background-color: white;
@@ -164,40 +169,131 @@ header > div {
   animation-fill-mode: forwards;
 }
 
-/* 헤드라인 설명 */
-.headline_description {
-  font-size: 2em;
-  color: white;
-  margin: 0;
-  visibility: hidden;
-  animation-name: headline_change_animation;
-  animation-duration: 0.3s;
-  animation-delay: 0.9s;
-  animation-fill-mode: forwards;
-}
-
 #best_balance_desc {
   color: oklch(60.6% 0.25 292.717);
 }
 
 /* --------------------------------- */
-/* 사진, 프로필 */
+/* 프로필 섹션 */
 #profile {
   width: 100%;
   height: 100vh;
 }
 
-#profile img {
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
+#profile_headline_container {
+  width: 100%;
+  height: 40vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* 프로필 설명 */
+#profile_headline {
+  font-size: 2em;
+  text-align: center;
+  color: black;
+}
+
+/* 이름 */
+#name {
+  color: oklch(72.3% 0.219 149.579);
+}
+
+#profiles_container {
+  width: 100%;
+  height: 60vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+.profiles_head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+/* 프로필 섹션 내 이미지*/
+.profiles_head > img {
+  width: 10%;
+  height: 10%;
+}
+
+/* 교육 */
+#education_container {
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 25vw;
+  height: 50vh;
+}
+
+/* 자격증 및 어학 */
+#certificates_container {
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 25vw;
+  height: 50vh;
+
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+/* 경력 */
+#work_experience_container {
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 25vw;
+  height: 50vh;
+}
+
+.profiles_title {
+  font-size: 1.5em;
+  text-align: center;
+
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+.profiles_content {
+  margin-top: 10%;
+}
+
+.year {
+  font-weight: 400;
+  color: oklch(55.1% 0.027 264.364);
+}
+
+.profile_description {
+  font-weight: 400;
+  color: oklch(55.1% 0.027 264.364);
+}
 /* --------------------------------- */
 /* 기술 스택 */
 #tech_stacks {
   width: 100%;
   height: 100vh;
+  background-color: oklch(21% 0.034 264.665);
+}
+
+#tech_stacks_headline_container {
+  width: 100%;
+  height: 40vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tech_stacks_headline {
+  font-size: 2em;
+  text-align: center;
+  color: white;
 }
 
 /* --------------------------------- */
@@ -212,10 +308,16 @@ header > div {
 #extras {
   width: 100%;
   height: 100vh;
+  background-color: oklch(21% 0.034 264.665);
+  color: white;
 }
 
 /* --------------------------------- */
 /* 꼬리말(깃허브 잔디, 현재 관심사) */
 footer div {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  background-color: oklch(92.8% 0.006 264.531);
 }
