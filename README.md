@@ -3,15 +3,18 @@
 
 ## 컨텐츠
 ### header
-- 네비게이션
-(스크롤해도 따라다니는 네비게이션 바)
+- 네비게이션 (스크롤해도 따라다니는 네비게이션 바)
+(Intersection Observer API를 통해 
+섹션 이동시 네비게이션 underline 변경 적용)
 - 헤드라인
 (배경이미지 + 한 줄 소개)
 
 ### main
 #### section 1
 - 프로필(학력, 자격증, 경력)
-(애니메이션 적용 o)
+(Intersection Observer API를 통해 
+DOM요소의 30%가 화면에 표시될 시, 
+프로필 헤드라인과 프로필 카드들이 fade-in)
 #### section 2
 - 기술 스택
 #### section 3

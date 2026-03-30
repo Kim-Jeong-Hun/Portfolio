@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>김정훈 | 포트폴리오</title>
+    <link rel="icon" href="/images/cv.png" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -36,14 +37,16 @@
     <main>
       <!-- 2. 프로필 -->
       <div id="profile">
+        <!-- 2.1 프로필 헤드라인 컨테이너 -->
         <div id="profile_headline_container">
           <p id="profile_headline">
-            <span>안녕하세요,<br /></span><span>UX와 코드 안정성 사이에서</span>
+            <span>안녕하세요,<br /></span><span>UX와 코드 사이에서</span>
             <span id="best_balance_desc">최고의 균형</span
             ><span>을 찾는 <br />프론트엔드 개발자 </span
             ><span id="name">김정훈</span><span>입니다.</span>
           </p>
         </div>
+        <!-- 2.2 프로필 컨텐츠 컨테이너 -->
         <div id="profiles_container">
           <div id="education_container">
             <div class="profiles_head">
@@ -100,13 +103,40 @@
 
       <!-- 3. 기술 스택 -->
       <div id="tech_stacks">
+        <!-- 3.1 기술 스택 헤드라인 컨테이너 -->
         <div id="tech_stacks_headline_container">
           <p id="tech_stacks_headline">
-            <span>저는 아래의 기술을 사용할 수 있습니다.</span>
+            <span>아래의 기술을 사용할 수 있습니다.</span>
           </p>
         </div>
+        <!-- 3.2 기술 스택 컨텐츠 컨테이너 -->
         <div id="tech_stacks_container">
-          <p>프론트엔드</p><p>백엔드</p><p>라이브러리</p><p>환경 및 배포</p>
+          <!-- 3.2.1 카테고리 (가로줄) -->
+          <div id="tech_stacks_category">
+            <div id="tech_stacks_category_bar">
+              <p>기획 및 디자인</p>
+              <p>프론트엔드</p>
+              <p>백엔드</p>
+              <p>라이브러리</p>
+              <p>환경 및 배포</p>
+            </div>
+          </div>
+          <!-- 3.2.2 숙련도 (세로줄) -->
+          <div id="tech_stacks_proficiency">
+            <div id="tech_stacks_proficiency_bar">
+              <p>초급</p>
+              <p>중급</p>
+              <p>고급</p>
+            </div>
+          </div>
+          <!-- 3.2.3 기술 스택들 -->
+           <div id="tech_stacks_image_container">
+            <p>HTML5</p>
+            <p>CSS3</p>
+            <p>JavaScript</p>
+            <p>React</p>
+            <p>TypeScript</p>
+           </div>
         </div>
       </div>
       <!-- 4. 프로젝트(진행 중 / 완료) -->

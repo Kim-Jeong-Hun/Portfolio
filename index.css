@@ -27,6 +27,7 @@ body {
     opacity: 0.9;
   }
 }
+
 #home {
   display: flex;
   flex-direction: column;
@@ -180,6 +181,7 @@ header > div {
   height: 100vh;
 }
 
+/* 프로필 헤드라인 컨테이너 */
 #profile_headline_container {
   width: 100%;
   height: 40vh;
@@ -187,6 +189,14 @@ header > div {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* 초기 상태 (애니메이션 적용 전) */
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#profile_headline_container.fade-in-up {
+  animation: slide_up_fade_in 0.8s ease-out forwards;
 }
 
 /* 프로필 설명 */
@@ -224,15 +234,31 @@ header > div {
   height: 10%;
 }
 
-/* 교육 */
+/* 슬라이드 업 + 투명도 변경 애니메이션 */
+@keyframes slide_up_fade_in {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 교육 카드 */
 #education_container {
   border: 3px solid black;
   border-radius: 20px;
   width: 25vw;
   height: 50vh;
+
+  /* 초기 상태 (애니메이션 적용 전) */
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* 자격증 및 어학 */
+/* 자격증 및 어학 카드 */
 #certificates_container {
   border: 3px solid black;
   border-radius: 20px;
@@ -241,14 +267,41 @@ header > div {
 
   margin-left: 1vw;
   margin-right: 1vw;
+
+  /* 초기 상태 (애니메이션 적용 전) */
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* 경력 */
+/* 경력 카드 */
 #work_experience_container {
   border: 3px solid black;
   border-radius: 20px;
   width: 25vw;
   height: 50vh;
+
+  /* 초기 상태 (애니메이션 적용 전) */
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 애니메이션 적용 상태 */
+/* 카드마다 개별 딜레이 부여 위해 선택자 분리*/
+/* 교육 카드 애니메이션 적용 시 */
+#education_container.fade-in-up {
+  animation: slide_up_fade_in 0.8s ease-out forwards;
+}
+
+/* 자격증 및 어학 카드 애니메이션 적용 시 */
+#certificates_container.fade-in-up {
+  animation: slide_up_fade_in 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+/* 경력 카드 애니메이션 적용 시 */
+#work_experience_container.fade-in-up {
+  animation: slide_up_fade_in 0.8s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 .profiles_title {
@@ -281,6 +334,7 @@ header > div {
   background-color: oklch(21% 0.034 264.665);
 }
 
+/* 기술 스택 헤드라인 컨테이너 */
 #tech_stacks_headline_container {
   width: 100%;
   height: 40vh;
@@ -288,12 +342,74 @@ header > div {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* 초기 상태 (애니메이션 적용 전) */
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+#tech_stacks_headline_container.fade-in-up {
+  animation: slide_up_fade_in 0.8s ease-out forwards;
+}
+
+/* 기술 스택 헤드라인 */
 #tech_stacks_headline {
   font-size: 2em;
   text-align: center;
   color: white;
+}
+
+/* 기술 스택 컨테이너 */
+#tech_stacks_container {
+  width: 100%;
+  height: 60vh;
+  color: white;
+}
+
+/* 기술 스택 카테고리 (가로줄) */
+#tech_stacks_category {
+  display: flex;
+  justify-content: center;
+}
+
+/* 기술 스택 카테고리 바 */
+#tech_stacks_category_bar {
+  width: 35vw;
+  height: 6vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+
+  border-radius: calc(infinity * 1px);
+  background-color: oklch(31% 0.034 264.665);
+}
+
+/* 기술 스택 숙련도 (세로줄) */
+#tech_stacks_proficiency {
+  display: flex;
+  justify-content: start;
+}
+
+/* 기술 스택 숙련도 바 */
+#tech_stacks_proficiency_bar {
+  width: 4vw;
+  height: 35vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  margin-left: 25vw;
+
+  border-radius: calc(infinity * 1px);
+  background-color: oklch(31% 0.034 264.665);
+}
+
+#tech_stacks_image_container {
+
 }
 
 /* --------------------------------- */
