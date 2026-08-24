@@ -1,11 +1,29 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import coverImg from './assets/portfolio_background_image.png'
 import educationIcon from './assets/education.svg'
 import certificateIcon from './assets/certificate.svg'
 import workExperienceIcon from './assets/work_experience.svg'
 import './App.css'
 
+type ProfileTabKey =
+  | 'education'
+  | 'certificates'
+  | 'work_experience'
+  | 'training'
+  | 'projects'
+
+const PROFILE_TABS: { key: ProfileTabKey; label: string; icon: string }[] = [
+  { key: 'education', label: '학력', icon: educationIcon },
+  { key: 'certificates', label: '자격증 및 어학', icon: certificateIcon },
+  { key: 'work_experience', label: '경력', icon: workExperienceIcon },
+  { key: 'training', label: '교육/훈련', icon: educationIcon },
+  { key: 'projects', label: '프로젝트', icon: workExperienceIcon },
+]
+
 function App() {
+  const [activeProfileTab, setActiveProfileTab] =
+    useState<ProfileTabKey>('education')
+
   useEffect(() => {
     // 현재 보이는 섹션에 맞춰 네비게이션 밑줄 표시
     const sections = document.querySelectorAll(
@@ -32,7 +50,7 @@ function App() {
 
     // 프로필/기술 스택 카드 fade-in-up 애니메이션
     const fadeContainers = document.querySelectorAll(
-      '#profile_headline_container, #education_container, #certificates_container, #work_experience_container, #tech_stacks_headline_container',
+      '#profile_headline_container, #profile_panel_container, #tech_stacks_headline_container',
     )
 
     const fadeObserver = new IntersectionObserver(
@@ -91,68 +109,84 @@ function App() {
                 <br />
               </span>
               <span>UX와 코드 사이에서</span>
-              <span id="best_balance_desc">최고의 균형</span>
+              <span id="best_balance_desc">{' '}최고의 균형</span>
               <span>
                 을 찾는 <br />
-                프론트엔드 개발자{' '}
+                개발자{' '}
               </span>
               <span id="name">김정훈</span>
               <span>입니다.</span>
             </p>
           </div>
-          <div id="profiles_container">
-            <div id="education_container">
-              <div className="profiles_head">
-                <img src={educationIcon} alt="education.svg" />
-                <p className="profiles_title">교육</p>
-                <div></div>
-              </div>
-              <ul className="profiles_content">
-                <li>
-                  경성대학교 <span className="year">(2019.03 - 2026.02)</span>
-                </li>
-                <p className="profile_description">전공 : 영어영문학과</p>
-                <p className="profile_description">복수전공 : 소프트웨어학과</p>
-                <br />
-                <li>
-                  거제고등학교 <span className="year">(2016.03 - 2019.02)</span>
-                </li>
-                <p className="profile_description">문과계열</p>
-              </ul>
+          <div id="profile_panel_container">
+            <div id="profile_tab_buttons">
+              {PROFILE_TABS.map((tab) => (
+                <button
+                  key={tab.key}
+                  type="button"
+                  className={`profile_tab_button${
+                    activeProfileTab === tab.key ? ' active' : ''
+                  }`}
+                  onClick={() => setActiveProfileTab(tab.key)}
+                >
+                  <img src={tab.icon} alt="" />
+                  <span>{tab.label}</span>
+                </button>
+              ))}
             </div>
-            <div id="certificates_container">
-              <div className="profiles_head">
-                <img src={certificateIcon} alt="certificate.svg" />
-                <p className="profiles_title">자격증 및 어학</p>
-                <div></div>
-              </div>
-              <ul className="profiles_content">
-                <li>
-                  SQLD <span className="year">(2025.09)</span>
-                </li>
-                <p className="profile_description">한국데이터베이스진흥센터</p>
-                <br />
-                <li>
-                  정보처리기사 <span className="year">(2025.06)</span>
-                </li>
-                <p className="profile_description">한국산업인력공단</p>
-                <br />
-                <li>
-                  OPIc | Advanced Low{' '}
-                  <span className="year">(2024.09 - 2026.09)</span>
-                </li>
+            <div id="profile_tab_content" key={activeProfileTab}>
+              {activeProfileTab === 'education' && (
+                <ul className="profiles_content">
+                  <li>
+                    경성대학교 <span className="year">(2019.03 - 2026.02)</span>
+                  </li>
+                  <p className="profile_description">
+                    전공 : 영어영문학, 소프트웨어학
+                  </p>
+                  <br />
+                  <li>
+                    거제고등학교{' '}
+                    <span className="year">(2016.03 - 2019.02)</span>
+                  </li>
+                  <p className="profile_description">문과계열</p>
+                </ul>
+              )}
+              {activeProfileTab === 'certificates' && (
+                <ul className="profiles_content">
+                  <li>
+                    SQLD <span className="year">(2025.09)</span>
+                  </li>
+                  <p className="profile_description">한국데이터베이스진흥센터</p>
+                  <br />
+                  <li>
+                    정보처리기사 <span className="year">(2025.06)</span>
+                  </li>
+                  <p className="profile_description">한국산업인력공단</p>
+                  <br />
+                  <li>
+                    OPIc | Advanced Low{' '}
+                    <span className="year">(2024.09 - 2026.09)</span>
+                  </li>
+                  <p className="profile_description">
+                    미국 외국어교육위원회(ACTFL)
+                  </p>
+                </ul>
+              )}
+              {activeProfileTab === 'work_experience' && (
                 <p className="profile_description">
-                  미국 외국어교육위원회(ACTFL)
+                  아직 등록된 경력이 없습니다.
                 </p>
-              </ul>
-            </div>
-            <div id="work_experience_container">
-              <div className="profiles_head">
-                <img src={workExperienceIcon} alt="work_experience.svg" />
-                <p className="profiles_title">경력</p>
-                <div></div>
-              </div>
-              <ul className="profiles_content"></ul>
+              )}
+              {activeProfileTab === 'training' && (
+                <p className="profile_description">
+                  아직 등록된 교육/훈련이 없습니다.
+                </p>
+              )}
+              {activeProfileTab === 'projects' && (
+                <p className="profile_description">
+                  아직 등록된 프로젝트가 없습니다.
+                </p>
+              )}
             </div>
           </div>
         </div>

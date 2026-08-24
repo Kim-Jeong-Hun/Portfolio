@@ -197,28 +197,6 @@ header > div {
   color: oklch(72.3% 0.219 149.579);
 }
 
-#profiles_container {
-  width: 100%;
-  height: 60vh;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.profiles_head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2vw;
-}
-
-/* 프로필 섹션 내 이미지*/
-.profiles_head > img {
-  width: 10%;
-  height: 10%;
-}
-
 /* 슬라이드 업 + 투명도 변경 애니메이션 */
 @keyframes slide_up_fade_in {
   from {
@@ -231,71 +209,85 @@ header > div {
   }
 }
 
-/* 교육 카드 */
-#education_container {
+/* 프로필 탭 패널 (학력 / 자격증 및 어학 / 경력 / 교육·훈련 / 프로젝트) */
+#profile_panel_container {
   border: 3px solid black;
   border-radius: 20px;
-  width: 25vw;
-  height: 50vh;
+  width: 55vw;
+  min-height: 50vh;
+  margin: 0 auto;
+  padding: 3vh 3vw;
+  box-sizing: border-box;
 
   /* 초기 상태 (애니메이션 적용 전) */
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* 자격증 및 어학 카드 */
-#certificates_container {
-  border: 3px solid black;
-  border-radius: 20px;
-  width: 25vw;
-  height: 50vh;
-
-  margin-left: 1vw;
-  margin-right: 1vw;
-
-  /* 초기 상태 (애니메이션 적용 전) */
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* 경력 카드 */
-#work_experience_container {
-  border: 3px solid black;
-  border-radius: 20px;
-  width: 25vw;
-  height: 50vh;
-
-  /* 초기 상태 (애니메이션 적용 전) */
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* 애니메이션 적용 상태 */
-/* 카드마다 개별 딜레이 부여 위해 선택자 분리*/
-/* 교육 카드 애니메이션 적용 시 */
-#education_container.fade-in-up {
+#profile_panel_container.fade-in-up {
   animation: slide_up_fade_in 0.8s ease-out forwards;
 }
 
-/* 자격증 및 어학 카드 애니메이션 적용 시 */
-#certificates_container.fade-in-up {
-  animation: slide_up_fade_in 0.8s ease-out forwards;
-  animation-delay: 0.1s;
-}
-
-/* 경력 카드 애니메이션 적용 시 */
-#work_experience_container.fade-in-up {
-  animation: slide_up_fade_in 0.8s ease-out forwards;
-  animation-delay: 0.2s;
-}
-
-.profiles_title {
-  font-size: 1.5em;
-  text-align: center;
-
+#profile_tab_buttons {
   display: flex;
-  justify-self: center;
-  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 1.5vh;
+  column-gap: 2vw;
+  border-bottom: 2px solid oklch(92.8% 0.006 264.531);
+  padding-bottom: 1.5vh;
+}
+
+.profile_tab_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8vh;
+
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 0 0 1.2vh;
+
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1.1em;
+  color: oklch(55.1% 0.027 264.364);
+  cursor: pointer;
+}
+
+.profile_tab_button img {
+  width: 2vw;
+  height: 2vw;
+  opacity: 0.6;
+}
+
+.profile_tab_button:hover {
+  color: black;
+}
+
+.profile_tab_button.active {
+  color: oklch(60.6% 0.25 292.717);
+  border-bottom-color: oklch(60.6% 0.25 292.717);
+}
+
+.profile_tab_button.active img {
+  opacity: 1;
+}
+
+@keyframes tab_content_fade_in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#profile_tab_content {
+  animation: tab_content_fade_in 0.4s ease-out;
 }
 
 .profiles_content {
