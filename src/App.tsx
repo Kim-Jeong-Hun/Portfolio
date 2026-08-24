@@ -20,6 +20,61 @@ const PROFILE_TABS: { key: ProfileTabKey; label: string; icon: string }[] = [
   { key: 'projects', label: '프로젝트', icon: workExperienceIcon },
 ]
 
+type ProfileEntry = {
+  title: string
+  period: string
+  description?: string
+}
+
+const EDUCATION_ENTRIES: ProfileEntry[] = [
+  {
+    title: '경성대학교',
+    period: '2019.03 - 2026.02',
+    description: '전공 : 영어영문학, 소프트웨어학',
+  },
+  {
+    title: '거제고등학교',
+    period: '2016.03 - 2019.02',
+    description: '문과계열',
+  },
+]
+
+const CERTIFICATE_ENTRIES: ProfileEntry[] = [
+  {
+    title: 'SQLD',
+    period: '2025.09',
+    description: '한국데이터베이스진흥센터',
+  },
+  {
+    title: '정보처리기사',
+    period: '2025.06',
+    description: '한국산업인력공단',
+  },
+  {
+    title: 'OPIc | Advanced Low',
+    period: '2024.09 - 2026.09',
+    description: '미국 외국어교육위원회(ACTFL)',
+  },
+]
+
+function ProfileEntryList({ entries }: { entries: ProfileEntry[] }) {
+  return (
+    <ul className="profile_entry_list">
+      {entries.map((entry) => (
+        <li key={entry.title} className="profile_entry">
+          <div className="profile_entry_header">
+            <span className="profile_entry_title">{entry.title}</span>
+            <span className="profile_entry_period">{entry.period}</span>
+          </div>
+          {entry.description && (
+            <p className="profile_entry_description">{entry.description}</p>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 function App() {
   const [activeProfileTab, setActiveProfileTab] =
     useState<ProfileTabKey>('education')
@@ -136,41 +191,10 @@ function App() {
             </div>
             <div id="profile_tab_content" key={activeProfileTab}>
               {activeProfileTab === 'education' && (
-                <ul className="profiles_content">
-                  <li>
-                    경성대학교 <span className="year">(2019.03 - 2026.02)</span>
-                  </li>
-                  <p className="profile_description">
-                    전공 : 영어영문학, 소프트웨어학
-                  </p>
-                  <br />
-                  <li>
-                    거제고등학교{' '}
-                    <span className="year">(2016.03 - 2019.02)</span>
-                  </li>
-                  <p className="profile_description">문과계열</p>
-                </ul>
+                <ProfileEntryList entries={EDUCATION_ENTRIES} />
               )}
               {activeProfileTab === 'certificates' && (
-                <ul className="profiles_content">
-                  <li>
-                    SQLD <span className="year">(2025.09)</span>
-                  </li>
-                  <p className="profile_description">한국데이터베이스진흥센터</p>
-                  <br />
-                  <li>
-                    정보처리기사 <span className="year">(2025.06)</span>
-                  </li>
-                  <p className="profile_description">한국산업인력공단</p>
-                  <br />
-                  <li>
-                    OPIc | Advanced Low{' '}
-                    <span className="year">(2024.09 - 2026.09)</span>
-                  </li>
-                  <p className="profile_description">
-                    미국 외국어교육위원회(ACTFL)
-                  </p>
-                </ul>
+                <ProfileEntryList entries={CERTIFICATE_ENTRIES} />
               )}
               {activeProfileTab === 'work_experience' && (
                 <p className="profile_description">
