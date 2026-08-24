@@ -161,18 +161,24 @@ header > div {
 }
 
 /* --------------------------------- */
-/* 프로필 섹션 */
+/* 프로필 섹션 (홈 섹션과 동일한 100vh) */
 #profile {
   width: 100%;
-  min-height: 100vh;
-  padding-bottom: 8vh;
+  height: 100vh;
   box-sizing: border-box;
+  padding-top: 6vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1vh;
 }
 
 /* 프로필 헤드라인 컨테이너 */
 #profile_headline_container {
   width: 100%;
-  height: 40vh;
+  height: 32vh;
 
   display: flex;
   justify-content: center;
@@ -213,14 +219,20 @@ header > div {
 
 /* 프로필 탭 패널 (학력 / 자격증 및 어학 / 경력 / 교육·훈련 / 프로젝트) */
 #profile_panel_container {
-  border: 3px solid black;
-  border-radius: 20px;
+  border: 1px solid oklch(92.8% 0.006 264.531);
+  border-radius: 24px;
+  box-shadow:
+    0 24px 48px -28px rgba(24, 20, 40, 0.22),
+    0 2px 8px rgba(24, 20, 40, 0.04);
   width: 70vw;
   max-width: 1100px;
-  min-height: 55vh;
+  height: 46vh;
   margin: 0 auto;
   padding: 4vh 4vw;
   box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
 
   /* 초기 상태 (애니메이션 적용 전) */
   opacity: 0;
@@ -235,43 +247,48 @@ header > div {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  row-gap: 1.5vh;
-  column-gap: 2vw;
-  border-bottom: 2px solid oklch(92.8% 0.006 264.531);
-  padding-bottom: 1.5vh;
+  flex-shrink: 0;
+  row-gap: 1vh;
+  column-gap: 0.8vw;
+  padding-bottom: 2vh;
+  margin-bottom: 2vh;
+  border-bottom: 1px solid oklch(92.8% 0.006 264.531);
 }
 
 .profile_tab_button {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.8vh;
+  gap: 0.6vw;
 
-  background: none;
+  background: transparent;
   border: none;
-  border-bottom: 3px solid transparent;
-  padding: 0 0 1.2vh;
+  border-radius: 999px;
+  padding: 0.9vh 1.2vw;
 
   font-family: inherit;
-  font-weight: 800;
-  font-size: clamp(0.95rem, 1.1vw, 1.2rem);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
   color: oklch(55.1% 0.027 264.364);
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .profile_tab_button img {
-  width: clamp(26px, 2.2vw, 34px);
-  height: clamp(26px, 2.2vw, 34px);
-  opacity: 0.6;
+  width: clamp(18px, 1.6vw, 24px);
+  height: clamp(18px, 1.6vw, 24px);
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
 }
 
 .profile_tab_button:hover {
+  background: oklch(95.5% 0.006 264.531);
   color: black;
 }
 
 .profile_tab_button.active {
+  background: oklch(60.6% 0.25 292.717 / 12%);
   color: oklch(60.6% 0.25 292.717);
-  border-bottom-color: oklch(60.6% 0.25 292.717);
 }
 
 .profile_tab_button.active img {
@@ -290,6 +307,10 @@ header > div {
 }
 
 #profile_tab_content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 1.2vw;
   animation: tab_content_fade_in 0.4s ease-out;
 }
 

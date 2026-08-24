@@ -41,6 +41,11 @@ const EDUCATION_ENTRIES: ProfileEntry[] = [
 
 const CERTIFICATE_ENTRIES: ProfileEntry[] = [
   {
+    title: 'ADsP',
+    period: '2026.08',
+    description: '한국데이터베이스진흥센터',
+  },
+  {
     title: 'SQLD',
     period: '2025.09',
     description: '한국데이터베이스진흥센터',
