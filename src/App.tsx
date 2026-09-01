@@ -255,11 +255,10 @@ type TechStackItem = {
   icon?: string
 }
 
-// 숙련도(level)는 임시값 - 실제 숙련도로 교체 필요
 const TECH_STACK_ITEMS: TechStackItem[] = [
   // HTML5, CSS3, JavaScript는 고정 순서
-  { name: 'HTML5', categories: ['frontend'], level: 'intermediate', icon: html5Icon },
-  { name: 'CSS3', categories: ['frontend'], level: 'intermediate', icon: css3Icon },
+  { name: 'HTML5', categories: ['frontend'], level: 'advanced', icon: html5Icon },
+  { name: 'CSS3', categories: ['frontend'], level: 'advanced', icon: css3Icon },
   {
     name: 'JavaScript',
     categories: ['language', 'frontend'],
@@ -268,10 +267,10 @@ const TECH_STACK_ITEMS: TechStackItem[] = [
   },
   // 이후 언어 → 기획 및 디자인 → 프론트엔드 → 백엔드 → 라이브러리 → 환경 및 배포 → 데이터 분석 순
   { name: 'Python', categories: ['language'], level: 'intermediate', icon: pythonIcon },
-  { name: 'Java', categories: ['language'], level: 'intermediate', icon: javaIcon },
-  { name: 'C', categories: ['language'], level: 'intermediate', icon: cIcon },
+  { name: 'Java', categories: ['language'], level: 'beginner', icon: javaIcon },
+  { name: 'C', categories: ['language'], level: 'beginner', icon: cIcon },
   { name: 'Figma', categories: ['planning'], level: 'intermediate', icon: figmaIcon },
-  { name: 'Notion', categories: ['planning'], level: 'intermediate', icon: notionIcon },
+  { name: 'Notion', categories: ['planning'], level: 'advanced', icon: notionIcon },
   { name: 'React', categories: ['frontend'], level: 'intermediate', icon: reactIcon },
   {
     name: 'Next.js',
@@ -294,13 +293,13 @@ const TECH_STACK_ITEMS: TechStackItem[] = [
   {
     name: 'MySQL',
     categories: ['data_analysis', 'backend'],
-    level: 'intermediate',
+    level: 'beginner',
     icon: mysqlIcon,
   },
   {
     name: 'Firebase',
     categories: ['infra', 'backend'],
-    level: 'intermediate',
+    level: 'beginner',
     icon: firebaseIcon,
   },
   {
@@ -320,19 +319,19 @@ const TECH_STACK_ITEMS: TechStackItem[] = [
   {
     name: 'pandas',
     categories: ['data_analysis'],
-    level: 'intermediate',
+    level: 'beginner',
     icon: pandasIcon,
   },
   {
     name: 'NumPy',
     categories: ['data_analysis'],
-    level: 'intermediate',
+    level: 'beginner',
     icon: numpyIcon,
   },
   {
     name: 'scikit-learn',
     categories: ['data_analysis'],
-    level: 'intermediate',
+    level: 'beginner',
     icon: scikitlearnIcon,
   },
 ]
