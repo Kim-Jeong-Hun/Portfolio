@@ -886,3 +886,207 @@ footer div {
   height: 5vh;
   background-color: oklch(92.8% 0.006 264.531);
 }
+
+/* --------------------------------- */
+/* 반응형 - 태블릿 (~1024px) */
+@media (max-width: 1024px) {
+  #navbar {
+    width: 78vw;
+    height: auto;
+    padding: 0.7em 0.5em;
+  }
+
+  nav > div > a {
+    font-size: 1.25em;
+  }
+
+  .headline_title {
+    font-size: 3.4em;
+  }
+
+  #profile_headline {
+    font-size: 1.7em;
+  }
+
+  #profile_panel_container {
+    width: 85vw;
+    padding: 3.5vh 3.5vw;
+  }
+
+  #tech_stacks_headline,
+  #projects_headline,
+  #extras_headline {
+    font-size: 1.7em;
+  }
+
+  #tech_stacks_matrix {
+    max-width: 90vw;
+  }
+
+  #project_card_grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+/* --------------------------------- */
+/* 반응형 - 모바일 (~640px) */
+@media (max-width: 640px) {
+  /* 네비게이션 */
+  #navbar {
+    width: 94vw;
+    margin-top: 1.2em;
+    padding: 0.5em 0.3em;
+    justify-content: space-around;
+  }
+
+  nav > div > a {
+    font-size: 0.82em;
+    white-space: nowrap;
+  }
+
+  /* 헤드라인 */
+  .headline_title {
+    font-size: 2.1em;
+    text-align: center;
+    padding: 0 4vw;
+  }
+
+  #headline_text_container {
+    gap: 1rem;
+  }
+
+  /* 프로필 섹션: 고정 100vh 대신 콘텐츠 높이에 맞춰 확장 */
+  #profile {
+    height: auto;
+    min-height: 100vh;
+    padding: 8vh 0 5vh;
+    box-sizing: border-box;
+  }
+
+  #profile_headline_container {
+    height: auto;
+    padding: 2vh 5vw;
+    box-sizing: border-box;
+  }
+
+  #profile_headline {
+    font-size: 1.25em;
+  }
+
+  #profile_panel_container {
+    width: 92vw;
+    height: auto;
+    padding: 3vh 5vw;
+  }
+
+  .profile_entry_list {
+    gap: 3vw;
+  }
+
+  .profile_entry {
+    flex: 1 1 100%;
+    padding: 1rem;
+  }
+
+  /* 기술 스택: 2열 매트릭스를 1열로 재구성 */
+  #tech_stacks {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  #tech_stacks_headline_container {
+    height: auto;
+    padding: 6vh 5vw 3vh;
+  }
+
+  #tech_stacks_container {
+    height: auto;
+    padding: 0 4vw 5vh;
+    box-sizing: border-box;
+  }
+
+  #tech_stacks_matrix {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1.6vh 0;
+  }
+
+  #tech_stacks_matrix_corner {
+    display: none;
+  }
+
+  #tech_stacks_category_bar {
+    grid-column: 1;
+    grid-row: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 16px;
+  }
+
+  #tech_stacks_level_bar {
+    grid-column: 1;
+    grid-row: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+
+  #tech_stacks_image_container {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 프로젝트 섹션 */
+  #projects {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  #projects_headline_container {
+    height: auto;
+    padding: 6vh 5vw 3vh;
+  }
+
+  #projects_container {
+    height: auto;
+    padding: 0 5vw 6vh;
+  }
+
+  #project_card_grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 기타 섹션 */
+  #extras {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  #extras_headline_container {
+    height: auto;
+    padding: 6vh 5vw 3vh;
+  }
+
+  #extras_container {
+    height: auto;
+    padding: 0 5vw 6vh;
+  }
+
+  #extras_panel_container {
+    padding: 2.4vh 4vw;
+  }
+
+  /* 꼬리말 */
+  footer div {
+    height: auto;
+    padding: 1.2em 0;
+    text-align: center;
+  }
+}
